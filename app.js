@@ -6,11 +6,14 @@ const app=express();
 mongoose.connect(url,{useNewUrlParser:true});
 const con=mongoose.connection
 con.on('open',function(){
-    console.log('connected');
+    console.log('server connected');
 })
-app.get('/yes', function (req, res) {
-    res.send('get request');
-  })
+// app.get('/yes', function (req, res) {
+//     res.send('get request');
+//   })
+  const userRouter=require('./src/routs/rout')
+
+  app.use('/user',userRouter);
    
   app.listen(3000,function(){
       console.log('server in listing at port 3000')
