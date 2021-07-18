@@ -9,7 +9,18 @@ router.get('/',async(req,res)=>{
         res.send('Error'+ err)
     }
 });
-router.post('/',(req,res)=>{
-    res.send('post request');
+router.post('/',async(req,res)=>{
+    try{
+        const user=new User({
+            name:req.body.name,
+            email:req.body.email,
+            tech:req.body.tech,
+            sub:req.body.sub
+        })
+        const a1=await user.save()
+        res.send(a1);
+    }catch(err){
+        res.send('Error'+err)
+    }
 })
 module.exports=router

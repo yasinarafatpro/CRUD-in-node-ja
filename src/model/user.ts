@@ -6,6 +6,11 @@ const userSchema=new userMongoose.Schema({
         required:true,
 
     },
+    email:{
+        type:String,
+        required:true,
+        unique:true
+    },
     tech:{
         type:String,
         required:true,
@@ -16,4 +21,4 @@ const userSchema=new userMongoose.Schema({
         default:false
     }
 })
-module.exports=userSchema
+module.exports=userMongoose.model('User',userSchema)
