@@ -17,7 +17,7 @@ const userSchema=new userMongoose.Schema({
     },
     sub:{
         type:Boolean,
-        required:true,
+        // required:true,
         default:false
     }
 })
